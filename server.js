@@ -5,7 +5,7 @@ import { Resend } from 'resend';
 
 const app = express();
 const port = process.env.PORT || 8000;
-const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_PUBLISHABLE_KEY || process.env.SUPABASE_ANON_KEY;
+const supabaseKey = process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_PUBLISHABLE_KEY || process.env.SUPABASE_ANON_KEY;
 if (!process.env.SUPABASE_URL || !supabaseKey) throw new Error('SUPABASE_URL and a Supabase key are required in .env');
 const supabase = createClient(process.env.SUPABASE_URL, supabaseKey);
 const resend = new Resend(process.env.RESEND_API_KEY);
