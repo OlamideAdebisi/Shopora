@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopora — Thoughtful pieces for everyday movement</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="announcement">Complimentary delivery on orders over $100 <span>·</span> Shop thoughtfully, live beautifully.</div>
+  <header class="site-header">
+    <button class="mobile-menu" aria-label="Open menu">☰</button>
+    <a class="logo" href="./index.html">Shopora</a>
+    <nav><a href="./shop.html">Shop</a><a href="./story.html">Our story</a><a href="./journal.html">Journal</a></nav>
+    <div class="header-actions"><button class="icon-btn" id="searchBtn" aria-label="Search">⌕</button><button class="account-link" id="accountBtn">Sign in</button><button class="cart-btn" id="cartBtn">Bag <span id="cartCount">0</span></button></div>
+  </header>
+
+  <main id="storefront">
+    <section class="hero">
+      <div class="hero-copy"><p class="eyebrow">The autumn edit · 2026</p><h1>Walk well.<br><em>Live fully.</em></h1><p class="hero-sub">Thoughtfully made shoes for city days, slow weekends, and every step in between.</p><a class="button dark" href="shop.html">Explore the collection <span>→</span></a></div>
+      <div class="hero-art"><div class="hero-label">A slower<br>kind of<br>beautiful</div></div>
+    </section>
+    <section class="category-row"><button data-category="All">All products</button><button data-category="Sneakers">Sneakers</button><button data-category="Boots">Boots</button><button data-category="Bags">Bags</button><button data-category="Clothing">Clothing</button><button data-category="Jewelry">Jewelry</button><button data-category="Everyday">Everyday essentials</button><span class="category-note">Made to move with you</span></section>
+    <section class="customer-promises"><div><strong>Free delivery</strong><span>On orders over $100</span></div><div><strong>Easy returns</strong><span>30 days, no questions</span></div><div><strong>Made thoughtfully</strong><span>Small batch pieces</span></div><div><strong>Need help?</strong><span>hello@kindredsteps.com</span></div></section>
+    <section class="shop-section" id="shop">
+      <div class="section-top"><div><p class="eyebrow">Curated for you</p><h2>Find your everyday favourites.</h2></div><div class="shop-tools"><div class="search-wrap"><span>⌕</span><input id="searchInput" placeholder="Search pieces..." /></div><select id="sortSelect"><option value="featured">Sort: Featured</option><option value="low">Price: Low to high</option><option value="high">Price: High to low</option></select></div></div>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+    <section class="story" id="about"><div class="story-art"></div><div class="story-copy"><p class="eyebrow">Our point of view</p><h2>Made for the way you move.</h2><p>Shopora brings together thoughtfully made pieces with comfort that lasts beyond the first impression.</p><a class="text-link" href="story.html">Read our story <span>↗</span></a></div></section>
+    <section class="newsletter" id="journal"><p class="eyebrow">The Kindred letter</p><h2>A little beauty, delivered.</h2><p>Notes on style, new arrivals, and things worth knowing.</p><div class="email-form"><input type="email" placeholder="Your email address" /><button class="button dark">Subscribe</button></div></section>
+  </main>
+
+  <main id="admin" class="admin-view hidden"><div class="admin-sidebar"><a class="logo" href="#">Hearth <i>&</i> Hazel</a><p class="admin-label">Commerce</p><button class="side-link active" data-admin="overview">▦ Overview</button><button class="side-link" data-admin="products">◌ Products</button><button class="side-link" data-admin="orders">▤ Orders <b>3</b></button><button class="side-link" data-admin="customers">♙ Customers</button><p class="admin-label">Settings</p><button class="side-link">⚙ Store settings</button><button class="back-store" id="backStore">← Back to store</button></div><div class="admin-content"><div class="admin-top"><div><p class="eyebrow">Monday, October 5, 2026</p><h1 id="adminTitle">Good morning, Amara.</h1></div><div class="admin-user">A<span>AK</span></div></div><div id="adminBody"></div></div></main>
+
+  <aside class="cart-drawer" id="cartDrawer"><div class="drawer-head"><h2>Your bag <small id="drawerCount">0 items</small></h2><button id="closeCart">×</button></div><div id="cartItems" class="cart-items"></div><div class="cart-footer"><div class="subtotal"><span>Subtotal</span><strong id="cartTotal">$0.00</strong></div><p>Shipping and taxes calculated at checkout.</p><button class="button dark full" id="checkoutBtn">Continue to checkout <span>→</span></button></div></aside><div class="overlay" id="overlay"></div>
+  <div class="modal" id="productModal"><button class="modal-close">×</button><div id="modalContent"></div></div>
+  <div class="modal checkout-modal" id="checkoutModal"><button class="modal-close">×</button><div id="checkoutContent"></div></div>
+  <div class="modal account-modal" id="accountModal"><button class="modal-close">×</button><div class="account-content"><p class="eyebrow">Your Hearth & Hazel account</p><h2>Keep your favourites close.</h2><p>Sign in to save your details, revisit past orders, and keep track of deliveries. You can always shop as a guest.</p><label>Email address<input type="email" placeholder="you@example.com"></label><button class="button dark full" id="accountContinue">Continue <span>→</span></button><p class="guest-note">New here? <a href="./index.html">Create an account</a></p><button class="guest-button" id="continueGuest">Continue as guest</button></div></div>
+  <div class="toast" id="toast">Added to your bag</div>
+  <script src="script.js?v=3"></script>
+  <script>
+    const brandText=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
+    while(brandText.nextNode()) brandText.currentNode.nodeValue=brandText.currentNode.nodeValue.replaceAll('Hearth & Hazel','Shopora').replaceAll('Hearth &amp; Hazel','Shopora').replaceAll('Kindred Steps','Shopora').replaceAll('Kindred House','Shopora');
+    new MutationObserver(list=>list.forEach(m=>m.addedNodes.forEach(n=>{if(n.nodeType===3)n.nodeValue=n.nodeValue.replaceAll('Hearth & Hazel','Kindred Steps');}))).observe(document.body,{subtree:true,childList:true});
+  </script>
+</body>
+</html>

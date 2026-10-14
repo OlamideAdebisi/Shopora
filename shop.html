@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Shop · Shopora</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="announcement">Complimentary delivery on orders over $100 · Shop thoughtfully, live beautifully.</div>
+  <header class="site-header">
+    <a class="logo" href="index.html">Shopora</a>
+    <nav><a href="./index.html">Home</a><a href="./shop.html">Shop</a><a href="./story.html">Our story</a><a href="./journal.html">Journal</a></nav>
+    <div class="header-actions"><button class="icon-btn" id="searchBtn" aria-label="Search">⌕</button><button class="cart-btn" id="cartBtn">Bag <span id="cartCount">0</span></button></div>
+  </header>
+  <main class="shop-section">
+    <p class="eyebrow">The full collection</p><h1 style="font:600 58px 'Playfair Display';margin:0 0 18px">Pieces for going places.</h1>
+    <p style="max-width:480px;color:var(--muted);line-height:1.7">Shoes, bags, clothing, and jewelry made to move with your everyday rhythm.</p>
+    <div class="section-top" style="margin-top:45px"><div class="category-row" style="padding:0;height:auto;background:none"><button data-category="All">All</button><button data-category="Sneakers">Sneakers</button><button data-category="Bags">Bags</button><button data-category="Clothing">Clothing</button><button data-category="Jewelry">Jewelry</button></div><div class="shop-tools"><div class="search-wrap"><span>⌕</span><input id="searchInput" placeholder="Search pieces..."></div><select id="sortSelect"><option value="featured">Sort: Featured</option><option value="low">Price: Low to high</option><option value="high">Price: High to low</option></select></div></div>
+    <div class="product-grid" id="productGrid"></div>
+  </main>
+  <aside class="cart-drawer" id="cartDrawer"><div class="drawer-head"><h2>Your bag <small id="drawerCount">0 items</small></h2><button id="closeCart">×</button></div><div id="cartItems" class="cart-items"></div><div class="cart-footer"><div class="subtotal"><span>Subtotal</span><strong id="cartTotal">$0.00</strong></div><p>Shipping and taxes calculated at checkout.</p><button class="button dark full" id="checkoutBtn">Continue to checkout <span>→</span></button></div></aside>
+  <div class="overlay" id="overlay"></div><div class="modal" id="productModal"><button class="modal-close">×</button><div id="modalContent"></div></div><div class="modal checkout-modal" id="checkoutModal"><button class="modal-close">×</button><div id="checkoutContent"></div></div><div class="toast" id="toast">Added to your bag</div>
+  <script src="script.js?v=3"></script>
+</body>
+</html>
