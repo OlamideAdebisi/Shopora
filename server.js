@@ -39,7 +39,7 @@ app.post('/api/orders', async (req, res) => {
 
   if (saveError) {
     console.error('Order save failed:', saveError);
-    return res.status(500).json({ error: 'The order could not be saved. No email was sent.' });
+    return res.status(500).json({ error: 'The order could not be saved. No email was sent.', details: saveError.message, code: saveError.code });
   }
 
   const itemRows = items.map(item => `<tr><td>${item.name}</td><td>${item.qty}</td><td>$${(item.price * item.qty).toFixed(2)}</td></tr>`).join('');
