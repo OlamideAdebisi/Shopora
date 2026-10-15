@@ -40,7 +40,7 @@
   <div class="modal checkout-modal" id="checkoutModal"><button class="modal-close">×</button><div id="checkoutContent"></div></div>
   <div class="modal account-modal" id="accountModal"><button class="modal-close">×</button><div class="account-content"><p class="eyebrow">Your Hearth & Hazel account</p><h2>Keep your favourites close.</h2><p>Sign in to save your details, revisit past orders, and keep track of deliveries. You can always shop as a guest.</p><label>Email address<input type="email" placeholder="you@example.com"></label><button class="button dark full" id="accountContinue">Continue <span>→</span></button><p class="guest-note">New here? <a href="./index.html">Create an account</a></p><button class="guest-button" id="continueGuest">Continue as guest</button></div></div>
   <div class="toast" id="toast">Added to your bag</div>
-  <script src="script.js?v=4"></script>
+  <script src="script.js?v=5"></script>
   <script>
     const brandText=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);
     while(brandText.nextNode()) brandText.currentNode.nodeValue=brandText.currentNode.nodeValue.replaceAll('Hearth & Hazel','Shopora').replaceAll('Hearth &amp; Hazel','Shopora').replaceAll('Kindred Steps','Shopora').replaceAll('Kindred House','Shopora');
