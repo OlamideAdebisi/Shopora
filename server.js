@@ -58,4 +58,15 @@ app.post('/api/orders', async (req, res) => {
   return res.status(201).json({ ok: true, orderId: savedOrder.id });
 });
 
+app.post('/api/subscribers', async (req, res) => {
+  const email = String(req.body?.email || '').trim().toLowerCase();
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return res.status(400).json({ error: 'Please enter a valid email address.' });
+  const { error } = await supabase.from('newsletter_subscribers').upsert({ email }, { onConflict: 'email' });
+  if (error) {
+    console.error('Subscriber save failed:', error);
+    return res.status(500).json({ error: 'We could not save your email. Please try again.' });
+  }
+  return res.status(201).json({ ok: true });
+});
+
 app.listen(port, () => console.log(`Shopora running at http://localhost:${port}`));
