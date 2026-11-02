@@ -17,7 +17,7 @@ Deno.serve(async (req) => {
     const email = String(body.email || '').trim().toLowerCase();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return json({ error: 'Please enter a valid email address.' }, 400);
     const response = await fetch(`${supabaseUrl}/rest/v1/newsletter_subscribers`, { method: 'POST', headers: { ...headers, Prefer: 'resolution=ignore-duplicates,return=minimal' }, body: JSON.stringify({ email }) });
-    if (!response.ok) return json({ error: 'We could not save your email.' }, 500);
+    if (!response.ok) return json({ error: 'We could not save your email.', details: await response.text(), status: response.status }, 500);
     return json({ ok: true }, 201);
   }
 
